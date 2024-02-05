@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import Logo from "./components/Logo";
+import Search from "./components/Search";
+import Airlines from "./components/Airlines";
+import airlines_information from "./airlines_information";
+
+function createAirline(airline) {
+	return (
+		<div>
+			<hr />
+			<Airlines key={Math.random()} site={airline.site} logoURL={airline.logoURL} name={airline.name} />
+		</div>
+	);
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<div className="header">
+				<div className="logo">
+					<Logo />
+				</div>
+				<div>
+					<Search />
+				</div>
+			</div>
+			<div style={{ margin: "30px" }}>{airlines_information.map(createAirline)}</div>
+		</div>
+	);
 }
 
 export default App;
