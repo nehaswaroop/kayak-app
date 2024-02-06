@@ -1,5 +1,7 @@
 FROM node:alpine AS development
 
+MAINTAINER Neha-Thakur
+
 # Declaring env
 ENV NODE_ENV development
 
@@ -7,7 +9,7 @@ ENV NODE_ENV development
 WORKDIR /kayak-app
 
 # Installing dependencies
-COPY ./package*.json /kayak-app
+COPY ./package*.json /kayak-app/
 
 RUN npm install
 
